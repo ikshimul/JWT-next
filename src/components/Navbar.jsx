@@ -57,12 +57,10 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                prefetch={false}
                 href="/dashboard"
                 className={
                   currentRoute === "/dashboard" ? "active-link" : "pending-link"
                 }
-                replace
               >
                 ড্যাশবোর্ড
               </Link>
@@ -128,7 +126,6 @@ const Navbar = () => {
               className={
                 currentRoute === "/dashboard" ? "active-link" : "pending-link"
               }
-              replace
             >
               ড্যাশবোর্ড
             </Link>
