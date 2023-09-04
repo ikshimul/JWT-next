@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import jsCookie from "js-cookie";
 
 const Navbar = () => {
   const currentRoute = usePathname();
@@ -12,13 +13,13 @@ const Navbar = () => {
     const response = await fetch("/api/logout");
     const json = await response.json();
     if (json["status"] === true) {
-      localStorage.removeItem("isLoging");
+      jsCookie.remove("isLoging");
       toast("আপনার লগআউট সফলভাবে সম্পন্ন হয়েছে");
       router.refresh("/");
       router.push("/");
     }
   };
-  const isLoging = localStorage.getItem("isLoging");
+  const isLoging = jsCookie.get("isLoging");
   console.log(isLoging);
   return (
     <div className="navbar fixed top-0 z-50 shadow bg-base-100 font-semibold">

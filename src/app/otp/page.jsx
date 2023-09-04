@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import jsCookie from "js-cookie";
 
 const page = () => {
   const searchParams = useSearchParams();
@@ -24,7 +25,7 @@ const page = () => {
     if (json["status"] === true) {
       toast("আপনার নিবন্ধন সফলভাবে সম্পন্ন হয়েছে");
       setLoader(false);
-      localStorage.setItem("isLoging", true);
+      jsCookie.set("isLoging", true);
       router.refresh("/dashboard");
       router.push("/dashboard");
     } else {
