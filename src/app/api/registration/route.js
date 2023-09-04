@@ -29,8 +29,8 @@ export async function POST(req, res) {
   };
 
   try {
-    let result = await Transport.sendMail(myEmail);
-    return NextResponse.json({ status: true, message: result });
+    Transport.sendMail(myEmail);
+    return NextResponse.json({ status: true, message: "mail send" });
   } catch (e) {
     return NextResponse.json({ status: false, message: e });
   }
