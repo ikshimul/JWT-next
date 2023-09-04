@@ -17,15 +17,14 @@ export async function GET(req, res) {
   });
 
   let myEmail = {
-    from: "info@teamrabbil.com",
-    envelope: {
-      to: ToEmail, // used as RCPT TO: address for SMTP
-    },
+    from: "Test Email <info@teamrabbil.com>",
+    to: ToEmail,
+    // envelope: {
+    //   to: ToEmail, // used as RCPT TO: address for SMTP
+    // },
     subject: "Test Email From Web App",
     text: "Test Email From Web App",
   };
-
-  console.log(myEmail);
 
   try {
     let result = await Transport.sendMail(myEmail);
