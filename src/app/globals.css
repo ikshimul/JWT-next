@@ -17,6 +17,7 @@
 }
 
 body {
+  font-family: var(--font-siliguri);
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -24,4 +25,15 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+.login-background{
+  background-image: url('/login-bg.jpeg');
+}
+.active-link{
+  color: #22c55e;
+}
+.Toastify__toast-body{
+  font-family: var(--font-siliguri);
+  font-weight: 600;
+  font-size: 13px;
 }
