@@ -25,11 +25,22 @@ export async function GET(req, res) {
     subject: "Test Email From Web App",
     text: "Test Email From Web App",
   };
-
-  try {
-    let result = await Transport.sendMail(myEmail);
-    return NextResponse.json({ message: result });
-  } catch (e) {
-    return NextResponse.json({ message: e });
-  }
+  await new Promise((resolve, reject) => {
+    Transport.sendMail(myEmail, (err, info) => {
+      if (err) {
+        console.error(err);
+        return NextResponse.json({ message: "mail not send" });
+        // return reject(err);
+      } else {
+        return NextResponse.json({ message: "mail send" });
+        // return resolve(info);
+      }
+    });
+  });
+  // try {
+  //   let result = await Transport.sendMail(myEmail);
+  //   return NextResponse.json({ message: result });
+  // } catch (e) {
+  //   return NextResponse.json({ message: e });
+  // }
 }
