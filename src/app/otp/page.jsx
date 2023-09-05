@@ -25,8 +25,6 @@ const page = () => {
     if (json["status"] === true) {
       toast("আপনার নিবন্ধন সফলভাবে সম্পন্ন হয়েছে");
       setLoader(false);
-      jsCookie.set("isLoging", true);
-      debugger;
       router.refresh("/dashboard");
       router.push("/dashboard");
     } else {

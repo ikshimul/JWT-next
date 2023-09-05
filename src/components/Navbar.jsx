@@ -13,14 +13,11 @@ const Navbar = () => {
     const response = await fetch("/api/logout");
     const json = await response.json();
     if (json["status"] === true) {
-      jsCookie.remove("isLoging");
       toast("আপনার লগআউট সফলভাবে সম্পন্ন হয়েছে");
-      //router.refresh("/");
+      router.refresh("/");
       router.push("/");
     }
   };
-  const isLoging = jsCookie.get("isLoging");
-  console.log(isLoging);
   return (
     <div className="navbar fixed top-0 z-50 shadow bg-base-100 font-semibold">
       <div className="navbar-start">
@@ -65,24 +62,21 @@ const Navbar = () => {
                 ড্যাশবোর্ড
               </Link>
             </li>
-            {!isLoging ? (
-              <li>
-                <Link
-                  href="/registration"
-                  className={
-                    currentRoute === "/registration"
-                      ? "active-link"
-                      : "pending-link"
-                  }
-                  replace
-                >
-                  নিবন্ধন করুন
-                  {/* সাইন-ইন করুন */}
-                </Link>
-              </li>
-            ) : (
-              ""
-            )}
+            <li>
+              <Link
+                href="/registration"
+                className={
+                  currentRoute === "/registration"
+                    ? "active-link"
+                    : "pending-link"
+                }
+                replace
+              >
+                নিবন্ধন করুন
+                {/* সাইন-ইন করুন */}
+              </Link>
+            </li>
+
             {/* <li>
               <Link
                 href="/login"
@@ -94,13 +88,10 @@ const Navbar = () => {
                 লগইন
               </Link>
             </li> */}
-            {isLoging ? (
-              <li>
-                <a onClick={Logout}>লগআউট</a>
-              </li>
-            ) : (
-              ""
-            )}
+
+            <li>
+              <a onClick={Logout}>লগআউট</a>
+            </li>
           </ul>
         </div>
         <Link
@@ -130,24 +121,22 @@ const Navbar = () => {
               ড্যাশবোর্ড
             </Link>
           </li>
-          {!isLoging ? (
-            <li>
-              <Link
-                href="/registration"
-                className={
-                  currentRoute === "/registration"
-                    ? "active-link"
-                    : "pending-link"
-                }
-                replace
-              >
-                নিবন্ধন করুন
-                {/* সাইন-ইন করুন */}
-              </Link>
-            </li>
-          ) : (
-            ""
-          )}
+
+          <li>
+            <Link
+              href="/registration"
+              className={
+                currentRoute === "/registration"
+                  ? "active-link"
+                  : "pending-link"
+              }
+              replace
+            >
+              নিবন্ধন করুন
+              {/* সাইন-ইন করুন */}
+            </Link>
+          </li>
+
           {/* <li>
             <Link
               href="/login"
@@ -159,13 +148,10 @@ const Navbar = () => {
               লগইন
             </Link>
           </li> */}
-          {isLoging ? (
-            <li>
-              <a onClick={Logout}>লগআউট</a>
-            </li>
-          ) : (
-            ""
-          )}
+
+          <li>
+            <a onClick={Logout}>লগআউট</a>
+          </li>
         </ul>
       </div>
     </div>
