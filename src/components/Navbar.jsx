@@ -15,7 +15,7 @@ const Navbar = () => {
     if (json["status"] === true) {
       jsCookie.remove("isLoging");
       toast("আপনার লগআউট সফলভাবে সম্পন্ন হয়েছে");
-      router.refresh("/");
+      //router.refresh("/");
       router.push("/");
     }
   };
