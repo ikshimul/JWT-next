@@ -26,8 +26,9 @@ const page = () => {
       toast("আপনার নিবন্ধন সফলভাবে সম্পন্ন হয়েছে");
       setLoader(false);
       jsCookie.set("isLoging", true);
-      router.push("/dashboard");
+      debugger;
       router.refresh("/dashboard");
+      router.push("/dashboard");
     } else {
       setLoader(false);
       toast("পিন যাচাইকরণ ব্যর্থ হয়েছে৷");
