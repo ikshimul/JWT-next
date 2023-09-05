@@ -1,0 +1,5 @@
+https://jwt-next-inzmamul-karim.vercel.app/
+
+Localhost - all work fine with email send and jwt token
+
+live Server - not working email
